@@ -1,0 +1,35 @@
+{
+    "name": "open-developer-ext/config",
+    "description": "Config extension for open-developer, thanks to z-song",
+    "type": "library",
+    "keywords": ["open-developer", "setting"],
+    "homepage": "https://github.com/open-developer-ext/config",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "open-developer",
+            "email": "infog@open-developer.org"
+        }
+    ],
+    "require": {
+        "php": ">=7.0.0",
+        "laravel/framework": ">=7.0",
+        "open-developer-org/open-developer": "~1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~6.0",
+        "laravel/laravel": "~7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "OpenDeveloper\\Developer\\Config\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "OpenDeveloper\\Developer\\Config\\ConfigServiceProvider"
+            ]
+        }
+    }
+}
