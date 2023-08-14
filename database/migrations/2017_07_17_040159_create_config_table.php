@@ -17,13 +17,15 @@ class CreateConfigTable extends Migration
 
         $table = config('developer.extensions.config.table', 'developer_config');
 
-        Schema::connection($connection)->create($table, function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name')->unique();
-            $table->string('value');
-            $table->text('description')->nullable();
-            $table->timestamps();
-        });
+        if (Schema::hasTable($table)) {
+            Schema::connection($connection)->create($table, function (Blueprint $table) {
+                $table->increments('id');
+                $table->string('name')->unique();
+                $table->string('value');
+                $table->text('description')->nullable();
+                $table->timestamps();
+            });
+        }
     }
 
     /**
